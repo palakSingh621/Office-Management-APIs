@@ -54,7 +54,10 @@ Deploying the lamda_function.py on the code Source
         Functionality: Retrieves all office records.
 ![req1](https://github.com/palakSingh621/Office-Management-APIs/assets/107800373/2d42a676-45b6-4bd1-9863-bc102098f58e)
 
-Edge Cases and Validations:
+       Edge Cases and Validations:
+       * When there is no Office      
+![req6](https://github.com/palakSingh621/Office-Management-APIs/assets/107800373/1526d5aa-1070-4eb5-b8e5-ec13604db057)
+
 
 ### 2. Create office
       Endpoint: /office
@@ -68,11 +71,6 @@ Edge Cases and Validations:
       Request Body: Json containing office details.
       Functionality: Creates a new office.
 ![req2](https://github.com/palakSingh621/Office-Management-APIs/assets/107800373/d835428a-edee-459f-bc9a-02bf85477374)
-      
-      Edge Cases and Validations:
-      i. Validate that the name and location fields are not empty.
-      ii. Ensure that an office with the same name and location does not already exist.
-      iii. Handle database connectivity issues gracefully.
 
 ### 3. Update Office
       Endpoint: /offices
@@ -87,11 +85,6 @@ Edge Cases and Validations:
       Request Body : Json containing updated office details.
       Functionality: Updates an existing office.
 ![req3](https://github.com/palakSingh621/Office-Management-APIs/assets/107800373/3c8259a6-55c0-4ab8-9a73-10509812103a)
-      
-      Edge Cases and Validations:
-i. Validate that the officeId exists before attempting an update.
-ii. Ensure that the name and location fields are not empty.
-iii. Prevent updating an office to have the same name and location as another existing office.
 
 ### 4. Delete Office
       Endpoint: /offices
@@ -101,9 +94,8 @@ iii. Prevent updating an office to have the same name and location as another ex
 ![req4](https://github.com/palakSingh621/Office-Management-APIs/assets/107800373/25f2304f-98cd-4068-89f3-e94182b5a1e9)
 
       Edge Cases and Validations:
-      i. Validate that the officeId exists before attempting a delete.
-      ii. Handle scenarios where the officeId does not exist.
-      iii. Ensure that related transactions for the office are handled appropriately (e.g., delete or archive transactions associated with the office, you can make changes to the schema of the transactions table to handle this as you want to).
+      * Validating that the officeId exists before attempting a delete and Handle scenarios where the officeId does not exist.
+![req7](https://github.com/palakSingh621/Office-Management-APIs/assets/107800373/b09a0ab3-6f21-4b1c-a531-141f4cbf9188)
 
 ### 5. Create Office Transaction
       Endpoint: /offices/transactions
@@ -114,6 +106,9 @@ iii. Prevent updating an office to have the same name and location as another ex
 ![req5](https://github.com/palakSingh621/Office-Management-APIs/assets/107800373/81692713-3ebc-472c-b345-50bd04b9d336)
 
       Edge Cases and Validations:
-      i. Validate that the officeId exists before creating a transaction.
-      ii. Ensure that the amount is a positive number.
-      iii. Validate that the transactionType is either EXPENSE or INCOME .
+      * Ensure that the amount is a positive number.
+![req8](https://github.com/palakSingh621/Office-Management-APIs/assets/107800373/d1c84822-7a2a-4742-ace1-62553958a014)
+
+      *Validate that the transactionType is either EXPENSE or INCOME .
+![req9](https://github.com/palakSingh621/Office-Management-APIs/assets/107800373/e7b7d05c-dbf2-44e8-a815-3fff698f5646)
+
