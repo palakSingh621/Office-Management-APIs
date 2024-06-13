@@ -89,7 +89,6 @@ Deploying the lamda_function.py on the code Source
 ### 4. Delete Office
       Endpoint: /offices
       HTTP Method: DELETE
-      Input:
       Functionality: Deletes an existing office.
 ![req4](https://github.com/palakSingh621/Office-Management-APIs/assets/107800373/25f2304f-98cd-4068-89f3-e94182b5a1e9)
 
@@ -100,7 +99,6 @@ Deploying the lamda_function.py on the code Source
 ### 5. Create Office Transaction
       Endpoint: /offices/transactions
       HTTP Method: POST
-      Inout: 
       Request Body: Json containing the transaction details.
       Functionality: Creates a new office transaction.
 ![req5](https://github.com/palakSingh621/Office-Management-APIs/assets/107800373/81692713-3ebc-472c-b345-50bd04b9d336)
