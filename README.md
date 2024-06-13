@@ -41,11 +41,79 @@ AWS Lambda is a serverless, event-driven compute service that lets us run code f
 
 ### Step3: Creating AWS Lambda Function
 ![Lambda1](https://github.com/palakSingh621/Office-Management-APIs/assets/107800373/396942bd-2d41-4b08-abee-f8e0ac844713)
-
+Deploying the lamda_function.py on the code Source
 
 ![Lambda2](https://github.com/palakSingh621/Office-Management-APIs/assets/107800373/33f4640f-c438-4690-b091-3dabf211dc3f)
-
-
-
 ![Lambda3](https://github.com/palakSingh621/Office-Management-APIs/assets/107800373/62d30d9c-96b3-402d-b879-0b2a2f9203ed)
 ![Lambda4](https://github.com/palakSingh621/Office-Management-APIs/assets/107800373/8745e38e-75b3-4426-aaa3-73671ec6c247)
+
+## API End-Points
+### 1. Retrieve All Offices
+        Endpoint: /offices
+        HTTP Method: POST
+        Functionality: Retrieves all office records.
+![req1](https://github.com/palakSingh621/Office-Management-APIs/assets/107800373/2d42a676-45b6-4bd1-9863-bc102098f58e)
+
+Edge Cases and Validations:
+
+### 2. Create office
+      Endpoint: /office
+      HTTP Method: POST
+      Input:
+      {
+         "id" : "1",
+         "name" : "Head Office",
+         "location" : "New York"
+      }
+      Request Body: Json containing office details.
+      Functionality: Creates a new office.
+![req2](https://github.com/palakSingh621/Office-Management-APIs/assets/107800373/d835428a-edee-459f-bc9a-02bf85477374)
+      
+      Edge Cases and Validations:
+      i. Validate that the name and location fields are not empty.
+      ii. Ensure that an office with the same name and location does not already exist.
+      iii. Handle database connectivity issues gracefully.
+
+### 3. Update Office
+      Endpoint: /offices
+      HTTP Method: PATCH
+      Input:
+      {
+         "id" : "1",
+         "updateKey" : "name",
+         "updateValue" : "NewofficeName"
+      }
+      Path Parameter : office
+      Request Body : Json containing updated office details.
+      Functionality: Updates an existing office.
+![req3](https://github.com/palakSingh621/Office-Management-APIs/assets/107800373/3c8259a6-55c0-4ab8-9a73-10509812103a)
+      
+      Edge Cases and Validations:
+i. Validate that the officeId exists before attempting an update.
+ii. Ensure that the name and location fields are not empty.
+iii. Prevent updating an office to have the same name and location as another existing office.
+
+### 4. Delete Office
+      Endpoint: /offices
+      HTTP Method: DELETE
+      Input:
+      Functionality: Deletes an existing office.
+![req4](https://github.com/palakSingh621/Office-Management-APIs/assets/107800373/25f2304f-98cd-4068-89f3-e94182b5a1e9)
+
+      Edge Cases and Validations:
+      i. Validate that the officeId exists before attempting a delete.
+      ii. Handle scenarios where the officeId does not exist.
+      iii. Ensure that related transactions for the office are handled appropriately (e.g., delete or archive transactions associated with the office, you can make changes to the schema of the transactions table to handle this as you want to).
+
+### 5. Create Office Transaction
+      Endpoint: /offices/transactions
+      HTTP Method: POST
+      Inout: 
+      Request Body: Json containing the transaction details.
+      Functionality: Creates a new office transaction.
+![req5](https://github.com/palakSingh621/Office-Management-APIs/assets/107800373/81692713-3ebc-472c-b345-50bd04b9d336)
+
+      Edge Cases and Validations:
+      i. Validate that the officeId exists before creating a transaction.
+      ii. Ensure that the amount is a positive number.
+      iii. Validate that the transactionType is either EXPENSE or INCOME .
