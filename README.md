@@ -47,7 +47,7 @@ Deploying the lamda_function.py on the code Source
 ![Lambda3](https://github.com/palakSingh621/Office-Management-APIs/assets/107800373/62d30d9c-96b3-402d-b879-0b2a2f9203ed)
 ![Lambda4](https://github.com/palakSingh621/Office-Management-APIs/assets/107800373/8745e38e-75b3-4426-aaa3-73671ec6c247)
 
-## API End-Points
+## API End-Points Using Postman
 ### 1. Retrieve All Offices
         Endpoint: /offices
         HTTP Method: POST
