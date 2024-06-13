@@ -95,9 +95,11 @@ def save_office(request_body):
 
 def modify_office(office_id, update_key, update_value):
     try:
+        # Use expression attribute names to handle reserved keywords
         response = office_table.update_item(
             Key={'id': office_id},
-            UpdateExpression=f'SET {update_key} = :value',
+            UpdateExpression=f'SET #attr = :value',
+            ExpressionAttributeNames={'#attr': update_key},
             ExpressionAttributeValues={':value': update_value},
             ReturnValues='UPDATED_NEW'
         )
@@ -110,6 +112,7 @@ def modify_office(office_id, update_key, update_value):
     except ClientError as e:
         print('Error:', e.response['Error']['Message'])
         return build_response(400, e.response['Error']['Message'])
+
 
 def delete_office(office_id):
     try:
